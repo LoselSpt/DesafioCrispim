@@ -6,8 +6,6 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.jetbrains.annotations.NotNull;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +24,7 @@ public class UsuarioModel implements Serializable {
     private String nomeUsuario;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "id")
+    @OneToMany(mappedBy = "usuario")
     private List<OrcamentoModel> orcamentos = new ArrayList<>();
 
     public UsuarioModel(){}
