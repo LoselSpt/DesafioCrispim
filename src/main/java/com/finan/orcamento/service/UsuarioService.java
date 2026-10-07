@@ -33,6 +33,7 @@ public class UsuarioService {
     public UsuarioModel atualizaUsuario(UsuarioModel usuarioModel, Long id){
         UsuarioModel newUsuarioModel = buscaId(id);
         newUsuarioModel.setNomeUsuario(usuarioModel.getNomeUsuario());
+        newUsuarioModel.setCpf(usuarioModel.getCpf());
         return usuarioRepository.save(newUsuarioModel);
     }
     public void deletaUsuario(Long id){

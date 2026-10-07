@@ -23,15 +23,20 @@ public class UsuarioModel implements Serializable {
     @Column(name="nome_usuario")
     private String nomeUsuario;
 
+    @NotBlank
+    @Column(name="cpf")
+    private String cpf;
+
     @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<OrcamentoModel> orcamentos = new ArrayList<>();
 
     public UsuarioModel(){}
 
-    public UsuarioModel(Long id, String nomeUsuario, List<OrcamentoModel> orcamentos) {
+    public UsuarioModel(Long id, String nomeUsuario, String cpf, List<OrcamentoModel> orcamentos) {
         this.id = id;
         this.nomeUsuario = nomeUsuario;
+        this.cpf = cpf;
         this.orcamentos = orcamentos;
     }
 
@@ -49,6 +54,14 @@ public class UsuarioModel implements Serializable {
 
     public void setNomeUsuario(String nomeUsuario) {
         this.nomeUsuario = nomeUsuario;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public List<OrcamentoModel> getOrcamentos() {

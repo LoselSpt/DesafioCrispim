@@ -22,6 +22,8 @@ public class UsuarioController {
 
     @GetMapping
     public String getUsuarioPage(Model model) {
+        List<UsuarioModel> usuarios = usuarioService.buscarUsuario();
+        model.addAttribute("usuarios", usuarios);
         model.addAttribute("usuarioModel", new UsuarioModel());
         return "usuarioPage";
     }
